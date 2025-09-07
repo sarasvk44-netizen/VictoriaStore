@@ -5,133 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VictoriaStore</title>
 
-  <!-- Czcionki z Google Fonts -->
+  <!-- Czcionki -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Pacifico', cursive; /* czcionka dla całej strony */
-      background: black;
-      color: goldenrod;
+      font-family: 'Pacifico', cursive;
+      background: url('twoje-tlo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #d4af37; /* złoty */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
-      padding: 15px;
-      font-size: 28px;
-      font-family: 'Great Vibes', cursive; /* logo */
-      color: goldenrod;
-      cursor: pointer;
       text-align: center;
+      padding: 30px 0;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 500;
-      color: goldenrod;
-      margin: 20px 0 40px 0;
-      font-family: 'Pacifico', cursive;
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin: 0;
+      color: #d4af37;
     }
 
-    .grid {
+    .menu {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       padding: 20px;
+      flex-grow: 1;
+      justify-items: center;
+      align-items: center;
     }
 
     .tile {
-      border: 2px solid goldenrod;
-      border-radius: 8px;
-      padding: 40px 20px;
+      width: 150px;
+      height: 150px;
+      border: 3px solid #d4af37;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
       text-align: center;
-      font-size: 20px;
-      font-weight: 500;
-      color: goldenrod;
-      cursor: pointer;
+      color: #fff;
       text-decoration: none;
-      transition: transform 0.2s, background 0.2s, color 0.2s;
+      transition: 0.3s;
     }
 
     .tile:hover {
-      background: goldenrod;
-      color: black;
+      background-color: rgba(212, 175, 55, 0.2);
       transform: scale(1.05);
     }
 
-    .page {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin: 20px 0;
-      padding: 10px 20px;
-      border: 2px solid goldenrod;
-      color: goldenrod;
-      background: black;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .back-btn:hover {
-      background: goldenrod;
-      color: black;
+    footer {
+      font-size: 14px;
+      color: #d4af37;
+      padding: 10px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
-  <header onclick="showPage('home')">VictoriaStore</header>
 
-  <!-- Strona główna -->
-  <div id="home" class="page active">
+  <header>
     <h1>VictoriaStore</h1>
-    <div class="grid">
-      <div class="tile" onclick="showPage('vipper')">Vipper & tilbehør</div>
-      <div class="tile" onclick="showPage('flasker')">Drikkeflasker</div>
-      <div class="tile" onclick="showPage('negler')">Negler & tilbehør</div>
-      <div class="tile" onclick="showPage('tilbehor')">Diverse tilbehør</div>
-    </div>
-  </div>
+  </header>
 
-  <!-- Podstrony -->
-  <div id="vipper" class="page">
-    <h1>Vipper & tilbehør</h1>
-    <p>Her vil produktene komme...</p>
-    <div class="back-btn" onclick="showPage('home')">Tilbake</div>
-  </div>
+  <main class="menu">
+    <a href="#" class="tile">Vipper</a>
+    <a href="#" class="tile">Drikkeflasker</a>
+    <a href="#" class="tile">Negler</a>
+    <a href="#" class="tile">Diverse</a>
+  </main>
 
-  <div id="flasker" class="page">
-    <h1>Drikkeflasker</h1>
-    <p>Her vil produktene komme...</p>
-    <div class="back-btn" onclick="showPage('home')">Tilbake</div>
-  </div>
+  <footer>
+    kontakt
+  </footer>
 
-  <div id="negler" class="page">
-    <h1>Negler & tilbehør</h1>
-    <p>Her vil produktene komme...</p>
-    <div class="back-btn" onclick="showPage('home')">Tilbake</div>
-  </div>
-
-  <div id="tilbehor" class="page">
-    <h1>Diverse tilbehør</h1>
-    <p>Her vil produktene komme...</p>
-    <div class="back-btn" onclick="showPage('home')">Tilbake</div>
-  </div>
-
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
 </body>
 </html>
