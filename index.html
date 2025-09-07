@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Victoria Store</title>
   <style>
     body {
@@ -19,33 +19,35 @@
     header {
       font-size: 2rem;
       font-weight: bold;
-      margin-bottom: 30px;
+      color: #8a2be2;
+      margin-bottom: 20px;
     }
-    .grid {
+    .menu {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 20px;
       width: 100%;
-      max-width: 800px;
+      max-width: 600px;
     }
     .tile {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 15px;
-      padding: 40px 20px;
+      border: 2px solid #8a2be2;
+      border-radius: 12px;
+      padding: 30px;
       text-align: center;
       font-size: 1.2rem;
-      font-weight: 600;
-      transition: background 0.3s;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: transparent;
+      color: #8a2be2;
     }
     .tile:hover {
-      background: rgba(0, 0, 0, 0.15);
-      cursor: pointer;
+      background: #f3e8ff;
     }
   </style>
 </head>
 <body>
-  <header>Victoria Store</header>
-  <div class="grid">
+  <header>VictoriaStore</header>
+  <div class="menu">
     <div class="tile">Nowości</div>
     <div class="tile">Kolekcja</div>
     <div class="tile">Promocje</div>
