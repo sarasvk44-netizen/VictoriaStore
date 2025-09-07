@@ -1,57 +1,155 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Victoria Store</title>
+
+  <!-- Skrifter -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 20px;
+    :root{
+      --gold: #C9A227;
+      --gold-soft:#e0c76b;
+      --text:#111; 
+      --bg:#fff;
     }
-    header {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #8a2be2;
-      margin-bottom: 20px;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text)}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5}
+
+    /* Toppmeny */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background:var(--bg);
+      border-bottom:1px solid #eee;
+      padding:14px 18px;
     }
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 600px;
+    .brand{
+      font-family:"Playfair Display", serif;
+      font-weight:800;
+      font-size:22px;
+      letter-spacing:.5px;
+      color:var(--gold);
+      text-decoration:none;
+      display:inline-block;
     }
-    .tile {
-      border: 2px solid #8a2be2;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: transparent;
-      color: #8a2be2;
+
+    /* Tittel-seksjon */
+    .hero{
+      padding:36px 18px 10px;
+      text-align:center;
     }
-    .tile:hover {
-      background: #f3e8ff;
+    .hero-title{
+      font-family:"Playfair Display", serif;
+      font-weight:800;
+      font-size: clamp(36px, 8vw, 64px);
+      letter-spacing:1px;
+      color:var(--gold);
+      text-transform:uppercase;
+    }
+    .hero-sep{
+      width:80px; height:6px; margin:14px auto;
+      border-top:4px solid var(--gold);
+      border-bottom:2px solid var(--gold);
+    }
+
+    /* Rutenett med kategorier */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+      padding:22px 18px 40px;
+      max-width:920px;
+      margin:0 auto;
+    }
+    .tile{
+      aspect-ratio:1/1;
+      border:2px solid var(--gold);
+      border-radius:12px;
+      background:transparent;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      padding:14px;
+      transition:.2s ease-in-out;
+      box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    }
+    .tile span{
+      display:block;
+      font-size: clamp(14px, 2.8vw, 20px);
+    }
+    .tile small{
+      display:block;
+      margin-top:6px;
+      font-weight:500;
+      opacity:.75;
+      font-size: clamp(12px, 2.4vw, 14px);
+    }
+    .tile:hover{
+      border-color:var(--gold-soft);
+      transform:translateY(-2px);
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+    }
+
+    footer{
+      text-align:center;
+      padding:24px 18px 40px;
+      font-size:13px; color:#666;
+    }
+
+    @media (min-width: 992px){
+      .topbar{padding:18px 32px}
+      .hero{padding:54px 32px 18px}
+      .grid{gap:18px; padding:26px 32px 54px}
     }
   </style>
 </head>
 <body>
-  <header>VictoriaStore</header>
-  <div class="menu">
-    <div class="tile">Nowości</div>
-    <div class="tile">Kolekcja</div>
-    <div class="tile">Promocje</div>
-    <div class="tile">Kontakt</div>
-  </div>
+
+  <!-- Logo øverst -->
+  <header class="topbar">
+    <a class="brand" href="#">Victoria Store</a>
+  </header>
+
+  <!-- Tittel -->
+  <section class="hero">
+    <h1 class="hero-title">Victoria Store</h1>
+    <div class="hero-sep"></div>
+  </section>
+
+  <!-- Kategorier -->
+  <main class="grid">
+    <a class="tile" href="vipper.html">
+      <span>Vipper &amp; tilbehør</span>
+      <small>Løsvipper, pinsetter, lim…</small>
+    </a>
+
+    <a class="tile" href="flasker.html">
+      <span>Drikkeflasker</span>
+      <small>Termos, sport, miljøvennlig</small>
+    </a>
+
+    <a class="tile" href="negler.html">
+      <span>Negler &amp; tilbehør</span>
+      <small>Tips, gelé, filer…</small>
+    </a>
+
+    <a class="tile" href="tilbehor.html">
+      <span>Diverse tilbehør</span>
+      <small>Nøkkelringer, strikker, pynt</small>
+    </a>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Victoria Store. Alle rettigheter reservert.
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
